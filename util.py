@@ -227,11 +227,12 @@ def forward_model(model, cooked_batch, ctx_frames, args, v_compress,
     losses = []
 
     # UNet.
-    enc_unet_output1 = Variable(torch.zeros(args.batch_size,), volatile=True).cuda()
-    enc_unet_output2 = Variable(torch.zeros(args.batch_size,), volatile=True).cuda()
+    with torch.no_grad():
+        enc_unet_output1 = Variable(torch.zeros(args.batch_size,)).cuda()
+        enc_unet_output2 = Variable(torch.zeros(args.batch_size,)).cuda()
 
-    dec_unet_output1 = Variable(torch.zeros(args.batch_size,), volatile=True).cuda()
-    dec_unet_output2 = Variable(torch.zeros(args.batch_size,), volatile=True).cuda()
+        dec_unet_output1 = Variable(torch.zeros(args.batch_size,)).cuda()
+        dec_unet_output2 = Variable(torch.zeros(args.batch_size,)).cuda()
     if v_compress:
         # Use decoded context frames to decode.
         dec_unet_output1, dec_unet_output2 =  prepare_unet_output(
