@@ -29,6 +29,8 @@ elif [[ ${hier} == "2" ]]; then
   bits=8
   encoder_fuse_level=1
   decoder_fuse_level=1
+  load_iter=36
+  load_model_name=0228_fixbmvscale_L2_DL1_clip0.5_flip_--v-compress_--use-lstm--warp--fuse-encoder--use-bmv_0.0005_shrink2_batch32_patch64_dist1_2_bits8_ffi2
 else
   echo "Usage: ./train.sh [0-2], e.g. ./train.sh 2"
   exit
@@ -50,5 +52,7 @@ python -u train.py \
   --v-compress --warp --stack --fuse-encoder \
   --bits ${bits} \
   --distance1 ${distance1} --distance2 ${distance2} \
+  --load-iter ${load_iter} \
+  --load-model-name ${load_model_name} \
   --max-train-iters 100 \
   --save-out-img

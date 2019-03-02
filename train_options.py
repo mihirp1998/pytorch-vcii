@@ -72,7 +72,7 @@ parser.add_argument('--gpus', default='0', type=str,
 ######## Experiment ########
 parser.add_argument('--out-dir', type=str, default='output',
                     help='Output directory (for compressed codes & output images).')
-parser.add_argument('--model-dir', type=str, default='model',
+parser.add_argument('--model-dir', type=str, default='vcii_model_params',
                     help='Path to model folder.')
 parser.add_argument('--load-model-name', type=str,
                     help='Checkpoint name to load. (Do nothing if not specified.)')

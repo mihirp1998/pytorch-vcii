@@ -73,12 +73,20 @@ def resume(index):
   for net_idx, net in enumerate(nets):
     if net is not None:
       name = names[net_idx]
-      checkpoint_path = '{}/{}_{}_{:08d}.pth'.format(
-          args.model_dir, args.save_model_name, 
-          name, index)
-
+      checkpoint_path = '{}/{}_{}_{:08d}.pth'.format(args.model_dir, args.save_model_name, name, index)
       print('Loading %s from %s...' % (name, checkpoint_path))
       net.load_state_dict(torch.load(checkpoint_path))
+
+
+def resume(load_name, index):
+  names = ['encoder', 'binarizer', 'decoder', 'unet']
+  for net_idx, net in enumerate(nets):
+    if net is not None:
+      name = names[net_idx]
+      checkpoint_path = '{}/{}_{}_{:08d}.pth'.format(args.model_dir,load_name, name, index)
+      print('Loading %s from %s...' % (name, checkpoint_path))
+      net.load_state_dict(torch.load(checkpoint_path))
+
 
 
 def save(index):
