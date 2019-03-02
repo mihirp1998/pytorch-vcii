@@ -20,7 +20,7 @@ print(args)
 ############### Data ###############
 train_loader = get_loader(
   is_train=True,
-  root=args.train, mv_dir=args.train_mv, 
+  root=args.train, mv_dir=args.train_mv,n_work=2,
   args=args
 )
 
@@ -29,7 +29,7 @@ def get_eval_loaders():
   eval_loaders = {
     'TVL': get_loader(
         is_train=False,
-        root=args.eval, mv_dir=args.eval_mv,
+        root=args.eval, mv_dir=args.eval_mv,n_work=0,
         args=args),
   }
   return eval_loaders

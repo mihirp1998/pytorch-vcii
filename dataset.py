@@ -9,7 +9,7 @@ import random
 import cv2
 
 
-def get_loader(is_train, root, mv_dir, args):
+def get_loader(is_train, root, mv_dir,n_work, args):
     print('\nCreating loader for %s...' % root)
 
     dset = ImageFolder(
@@ -23,7 +23,7 @@ def get_loader(is_train, root, mv_dir, args):
         dataset=dset,
         batch_size=args.batch_size if is_train else args.eval_batch_size,
         shuffle=is_train,
-        num_workers=2
+        num_workers=n_work
     )
 
     print('Loader for {} images ({} batches) created.'.format(
