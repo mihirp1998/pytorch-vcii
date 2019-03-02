@@ -47,6 +47,7 @@ nets = [encoder, binarizer, decoder]
 if unet is not None:
   nets.append(unet)
 
+print(nets[0].rnn2.weights.shape,"rnn2")
 gpus = [int(gpu) for gpu in args.gpus.split(',')]
 if len(gpus) > 1:
   print("Using GPUs {}.".format(gpus))
