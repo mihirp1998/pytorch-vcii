@@ -30,7 +30,7 @@ class EncoderCell(nn.Module):
             padding=1,
             hidden_kernel_size=1,
             bias=False)
-        print(fuse_encoder,"fuse_encoder",v_compress,"v_compress")
+        # print(fuse_encoder,"fuse_encoder",v_compress,"v_compress")
         self.rnn2 = ConvLSTMCell(
             ((384 if fuse_encoder and v_compress else 256) 
              if self.fuse_level >= 2 else 256),

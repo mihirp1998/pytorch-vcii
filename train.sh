@@ -27,7 +27,7 @@ elif [[ ${hier} == "2" ]]; then
   distance1=1
   distance2=2
   bits=8
-  encoder_fuse_level=1
+  encoder_fuse_level=2
   decoder_fuse_level=1
   load_iter=36
   load_model_name=0228_fixbmvscale_L2_DL1_clip0.5_flip_--v-compress_--use-lstm--warp--fuse-encoder--use-bmv_0.0005_shrink2_batch32_patch64_dist1_2_bits8_ffi2
