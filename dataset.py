@@ -307,3 +307,19 @@ class ImageFolder(data.Dataset):
 
     def __len__(self):
         return len(self.imgs)
+
+if __name__ == "__main__":
+    train="data/train"
+    train_mv="data/train_mv"
+    from tempArg import TempArgument
+    args = TempArgument(distance1=1,distance2=2,warp=True,v_compress=True,patch=64,num_crops=2,batch_size=3)
+    print(args)
+    dset = ImageFolder(
+        is_train=True,
+        root=train,
+        mv_dir=train_mv,
+        args=args,
+    )
+    train_loader = get_loader(is_train=True,root=train, mv_dir=train_mv,n_work=0,args=args)
+    from IPython import embed 
+    embed()
