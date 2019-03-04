@@ -122,8 +122,8 @@ while True:
     for batch, (crops, ctx_frames, _) in enumerate(train_loader):
         scheduler.step()
         train_iter += 1
-        pickle.dump(crops,open("crop1.p","wb"))
-        pickle.dump(ctx_frames,open("ctx_frames1.p","wb"))
+        # pickle.dump(crops,open("crop1.p","wb"))
+        # pickle.dump(ctx_frames,open("ctx_frames1.p","wb"))
         #crops = pickle.load(open("crop.p","rb"))
         #ctx_frames = pickle.load(open("ctx_frames.p","rb"))
         # id_num = pickle.load(open("id_num.p","rb"))
